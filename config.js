@@ -4,7 +4,7 @@ self.$config = {
     // 首页
     {title: 'Home', path: '/'}
   ]
-  repo: 'respeaker/respeaker_python_library',
-  'edit-link': 'https://github.com/respeaker/respeaker_python_library/blob/master/docs',
-}
+  repo: 'respeaker/docs',
+  url: 'https://respeaker.io/docs',
+  'edit-link': 'https://github.com/respeaker/docs/blob/master',
 }
