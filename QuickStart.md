@@ -7,12 +7,10 @@ ReSpeaker is set to Repeater Mode as default, and you have to connect it to an e
 When you first power on ReSpeaker, it will create a Wi-Fi network called "ReSpeakerXXXXXX". Here "XXXXXX" is the last 6 of your ReSpeaker MAC address, which is marked on the board. Connect your computer to this network.
 
 <div class="text-center">
-<img src="https://github.com/respeaker/get_started_with_respeaker/blob/master/img/wifi1.png?raw=true" width="50%" height="50%">
+<img src="https://github.com/respeaker/get_started_with_respeaker/blob/master/img/wifi1.png?raw=true" width="30%" height="30%">
 </div>
 
-
-
-**If "ReSpeakerXXXXXX" does not appear, but "LinkIt_Smart_7688_XXXXXX" is found. Please click [here](QuickStart.md#update-for-old-version).**
+*If "ReSpeakerXXXXXX" does not appear, but "LinkIt_Smart_7688_XXXXXX" is found. Please click [here](#/QuickStart?id=update-for-old-version).*
 
 Once you've obtained an IP address, open a web browser, and enter `192.168.100.1` in the address bar. After a few seconds, a web page will appear asking for ssid and password of an existing Wi-Fi network.
 
@@ -58,10 +56,10 @@ Then ReSpeaker will check its version and the following web page will appear whe
 **Note:** If you can not update your ReSpeaker via Web or can not visit `http://192.168.100.1/home.html`, please click [here](https://s3-us-west-2.amazonaws.com/respeaker.io/firmware/ramips-openwrt-latest-LinkIt7688-squashfs-sysupgrade.bin) to download the lastest firmware on your computer, copy it to a SD card and plug the SD card into ReSpeaker.
 
 
-Connect to the [serial console](QuickStart.md#serial-console) of ReSpeaker, type the following command lines to update the firmware:
+Connect to the [serial console](#/QuickStart?id=serial-console) of ReSpeaker, type the following command lines to update the firmware:
 
 
-```
+```bash
 mount /dev/mmcblk0p1 /mnt
 cd /mnt
 sysupgrade -n -F ramips-openwrt-latest-LinkIt7688-squashfs-sysupgrade.bin
@@ -93,7 +91,7 @@ Please click `Music Player` to enter the HTML frontend for the Mopidy music serv
 
 ## File manager
 
-File manager is an extension of Mopidy music server. It allows you to browse/search/edit/upload your local file system. Enter `http://192.168.100.1/home.html` in a web browser and click `File Manager` to get started.
+File manager is an extension of Mopidy music server. It allows you to browse, search, edit or upload file to your local file system. Enter `http://192.168.100.1/home.html` in a web browser and click `File Manager` to get started.
 
 <div class="text-center">
 <img src="https://github.com/respeaker/get_started_with_respeaker/blob/master/img/filemanager.png?raw=true" width="50%" height="50%">
@@ -121,7 +119,7 @@ The default username and password are all "root".
 ## Serial console
 
 - Baudrate: 57600
-- Terminal app - on Windows, [putty](https://github.com/respeaker/get_started_with_respeaker/blob/master/SetupPutty.md) is recommended. On Linux/Mac, use `screen /dev/xxx 57600`
+- Terminal app - on Windows, [putty](#/SetupPutty) is recommended. On Linux/Mac, use `screen /dev/xxx 57600`
 
 
 ## First impression with Voice Interaction - ReSpeaker, play music!
@@ -204,7 +202,7 @@ Try to say "ReSpeaker, play music!". Then ReSpeaker will play "Beethoven\_Sympho
 4. Select ReSpeaker as the following picture:
 
 	<div class="text-center">
-	<img src="https://github.com/respeaker/get_started_with_respeaker/blob/master/img/airplay.png?raw=true" width="50%" height="50%">
+	<img src="https://github.com/respeaker/get_started_with_respeaker/blob/master/img/airplay.png?raw=true" width="40%" height="40%">
 	</div>
 
 5. Connect your headphone/speaker to respeaker, then you can enjoy the music now.
@@ -217,7 +215,7 @@ Try to say "ReSpeaker, play music!". Then ReSpeaker will play "Beethoven\_Sympho
 3. Select ReSpeaker as the following picture:
 
 	<div class="text-center">
-	<img src="https://github.com/respeaker/get_started_with_respeaker/blob/master/img/dlna.png?raw=true" width="50%" height="50%">
+	<img src="https://github.com/respeaker/get_started_with_respeaker/blob/master/img/dlna.png?raw=true" width="40%" height="40%">
 	</div>
 
 4. Connect your headphone/speaker to respeaker, then you can enjoy the music now.
@@ -232,88 +230,89 @@ During the boot process, external storage space is mounted as the root file syst
 
 1. Make sure your SD card is plugged into ReSpeaker and `/dev/mmcblk0p1` can be detected by `df -h` or `ls /dev`.
 
-	```
-	root@ReSpeaker:/# df -h
-	Filesystem                Size      Used Available Use% Mounted on
-	rootfs                    1.8M    832.0K    960.0K  46% /
-	/dev/root                29.0M     29.0M         0 100% /rom
-	tmpfs                    61.7M    276.0K     61.5M   0% /tmp
-	/dev/mtdblock6            1.8M    832.0K    960.0K  46% /overlay
-	overlayfs:/overlay        1.8M    832.0K    960.0K  46% /
-	tmpfs                   512.0K         0    512.0K   0% /dev
-	/dev/mmcblk0p1            7.4G      2.5M      7.4G   0% /tmp/run/mountd/mmcblk0p1
-	```
+  ```bash
+  df -h
+  Filesystem                Size      Used Available Use% Mounted on
+  rootfs                    1.8M    832.0K    960.0K  46% /
+  /dev/root                29.0M     29.0M         0 100% /rom
+  tmpfs                    61.7M    276.0K     61.5M   0% /tmp
+  /dev/mtdblock6            1.8M    832.0K    960.0K  46% /overlay
+  overlayfs:/overlay        1.8M    832.0K    960.0K  46% /
+  tmpfs                   512.0K         0    512.0K   0% /dev
+  /dev/mmcblk0p1            7.4G      2.5M      7.4G   0% /tmp/run/mountd/mmcblk0p1
+  ```
+
 
 2. Format your SD card into two partitions, one is FAT32, the other is EXT4. EXT4 file system will be as an extroot while FAT32 will be as a normal storage device, which is able to transfer files between ReSpeaker and your PC.
 
-	```
-	umount /dev/mmcblk0p1
-	fdisk /dev/mmcblk0
-	# ------------------ fdisk ------------------------
-	>Command (m for help):o
-	>Created a new DOS disklabel
-	>Command (m for help):n
-	>Partition type
-	p   primary (0 primary, 0 extended, 4 free)
-	e   extended (container for logical partitions)
-	>Select (default p):p
-	>Partition number (1-4, default 1):1
-	>First sector (2048-15523839, default 2048):
-	>Last sector, +sectors or +size{K,M,G,T,P} (2048-15523839, default 15523839): +2G
-	>Command (m for help):n
-	>Partition type
-	p   primary (1 primary, 0 extended, 3 free)
-	e   extended (container for logical partitions)
-	>Select (default p):p
-	>Partition number (1-4, default 2):2
-	>First sector (4196352-15523839, default 4196352):
-	>Last sector, +sectors or +size{K,M,G,T,P} (4196352-15523839, default 15523839):
-	>Command (m for help):w
-	>The partition table has been altered.
-	>Calling i[  292.010000]  mmcblk0: p1 p2
-	>octl() to re-read partition table.
-	>Syncing disks.
-	# ------------------ end ------------------------
+	```bash
+  umount /dev/mmcblk0p1
+  fdisk /dev/mmcblk0
+  # ------------------ fdisk ------------------------
+  >Command (m for help):o
+  >Created a new DOS disklabel
+  >Command (m for help):n
+  >Partition type
+  p   primary (0 primary, 0 extended, 4 free)
+  e   extended (container for logical partitions)
+  >Select (default p):p
+  >Partition number (1-4, default 1):1
+  >First sector (2048-15523839, default 2048):
+  >Last sector, +sectors or +size{K,M,G,T,P} (2048-15523839, default 15523839): +2G
+  >Command (m for help):n
+  >Partition type
+  p   primary (1 primary, 0 extended, 3 free)
+  e   extended (container for logical partitions)
+  >Select (default p):p
+  >Partition number (1-4, default 2):2
+  >First sector (4196352-15523839, default 4196352):
+  >Last sector, +sectors or +size{K,M,G,T,P} (4196352-15523839, default 15523839):
+  >Command (m for help):w
+  >The partition table has been altered.
+  >Calling i[  292.010000]  mmcblk0: p1 p2
+  >octl() to re-read partition table.
+  >Syncing disks.
+  # ------------------ end ------------------------
 
-	mkfs.fat /dev/mmcblk0p1
-	mkfs.ext4 /dev/mmcblk0p2
+  mkfs.fat /dev/mmcblk0p1
+  mkfs.ext4 /dev/mmcblk0p2
 
-	# reload mtk_sd kernel module
-	rmmod mtk_sd
-	insmod mtk_sd
-	```
+  # reload mtk_sd kernel module
+  rmmod mtk_sd
+  insmod mtk_sd
+  ```
 
 3. Prepare your external storage root overlay.
 
-	```
-	mount /dev/mmcblk0p2 /mnt ; tar -C /overlay -cvf - . | tar -C /mnt -xf - ; umount /mnt
-	```
+	```bash
+  mount /dev/mmcblk0p2 /mnt ; tar -C /overlay -cvf - . | tar -C /mnt -xf - ; umount /mnt
+  ```
 
 4. Create fstab with the following command. This command will create a fstab template enabling all partitions and setting '/mnt/mmcblk0p2' partition as '/overlay' partition.
 
-	```
-	block detect > /etc/config/fstab;
-	sed -i s/option$'\t'enabled$'\t'\'0\'/option$'\t'enabled$'\t'\'1\'/ /etc/config/fstab;
-	sed -i s#/mnt/mmcblk0p2#/overlay# /etc/config/fstab;
-	cat /etc/config/fstab;
-   	```
+	```bash
+  block detect > /etc/config/fstab;
+  sed -i s/option$'\t'enabled$'\t'\'0\'/option$'\t'enabled$'\t'\'1\'/ /etc/config/fstab;
+  sed -i s#/mnt/mmcblk0p2#/overlay# /etc/config/fstab;
+  cat /etc/config/fstab;
+  ```
 
 5. Check if it is mountable to overlay.
 
-	```
-	root@mylinkit:/# mount /dev/mmcblk0p2 /overlay/
-	root@ReSpeaker:/# df -h
-Filesystem                Size      Used Available Use% Mounted on
-rootfs                    1.8M    832.0K    960.0K  46% /
-/dev/root                29.0M     29.0M         0 100% /rom
-tmpfs                    61.7M    276.0K     61.5M   0% /tmp
-/dev/mtdblock6            5.2G     11.8M      4.9G   0% /overlay
-overlayfs:/overlay        1.8M    832.0K    960.0K  46% /
-tmpfs                   512.0K         0    512.0K   0% /dev
-/dev/mmcblk0p2            5.2G     11.8M      4.9G   0% /tmp/run/mountd/mmcblk0p2
-/dev/mmcblk0p1            2.0G      4.0K      2.0G   0% /tmp/run/mountd/mmcblk0p1
-/dev/mmcblk0p2            5.2G     11.8M      4.9G   0% /overlay
-	```
+	```bash
+  mount /dev/mmcblk0p2 /overlay/
+  df -h
+  Filesystem                Size      Used Available Use% Mounted on
+  rootfs                    1.8M    832.0K    960.0K  46% /
+  /dev/root                29.0M     29.0M         0 100% /rom
+  tmpfs                    61.7M    276.0K     61.5M   0% /tmp
+  /dev/mtdblock6            5.2G     11.8M      4.9G   0% /overlay
+  overlayfs:/overlay        1.8M    832.0K    960.0K  46% /
+  tmpfs                   512.0K         0    512.0K   0% /dev
+  /dev/mmcblk0p2            5.2G     11.8M      4.9G   0% /tmp/run/mountd/mmcblk0p2
+  /dev/mmcblk0p1            2.0G      4.0K      2.0G   0% /tmp/run/mountd/mmcblk0p1
+  /dev/mmcblk0p2            5.2G     11.8M      4.9G   0% /overlay
+  ```
 
 6. Reboot ReSpeaker and check again. If SD card is mounted automatically, you are done. More informations about **extroot**, please click [here](https://wiki.openwrt.org/doc/howto/extroot).
 
@@ -323,7 +322,7 @@ After extending storage with a SD card, there are enough storage to install soft
 
 1. Install git
 
-	```
-	opkg update
-	opkg install git git-http
-	```
+	```bash
+  opkg update
+  opkg install git git-http
+  ```
